@@ -28,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "name text,"
                 + "last text,"
                 + "email text," // added a ','
-//                + "pass,"
+                + "pass,"
                 + "login" + ");");
     }
 
