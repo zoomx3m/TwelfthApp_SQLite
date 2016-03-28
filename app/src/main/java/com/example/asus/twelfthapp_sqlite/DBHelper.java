@@ -16,12 +16,20 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.d("LOG_TAG,", "--- onCreate database ---");
         // создаем таблицу с полями
-        db.execSQL(" create table mytable ( "
-                + " id integer primary key autoincrement, "
-                + " name text, "
-                + " email text, "
-//                + " login text, "
-                + ");");
+//        db.execSQL(" create table mytable ("
+//                + "id integer primary key autoincrement,"
+//                + "name text,"
+//                + "email text,"
+//                + "login text"
+//                + ");");
+
+        db.execSQL("create table mytable ("
+                + "id integer primary key autoincrement,"
+                + "name text,"
+                + "last text,"
+                + "email text," // added a ','
+//                + "pass,"
+                + "login" + ");");
     }
 
     @Override

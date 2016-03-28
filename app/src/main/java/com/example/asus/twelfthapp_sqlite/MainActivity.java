@@ -50,8 +50,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // получаем данные из полей ввода
         String name = etName.getText().toString();
+          String last = etLastName.getText().toString();
         String email = etEmail.getText().toString();
-//        String login = etLogin.getText().toString();
+        String login = etLogin.getText().toString();
+//          String pass = etPass.getText().toString();
+
+
 
         // подключаемся к БД
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -63,8 +67,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 // подготовим данные для вставки в виде пар: наименование столбца - значение
 
                 cv.put("name", name);
+                cv.put("last", last);
                 cv.put("email", email);
-//                cv.put("login", login);
+                cv.put("login", login);
+//                cv.put("pass", pass);
                 // вставляем запись и получаем ее ID
                 long rowID = db.insert("mytable", null, cv);
                 Log.d(LOG_TAG, "row inserted, ID = " + rowID);
@@ -81,16 +87,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     // определяем номера столбцов по имени в выборке
                     int idColIndex = c.getColumnIndex("id");
                     int nameColIndex = c.getColumnIndex("name");
+                    int lastColIndex = c.getColumnIndex("last");
                     int emailColIndex = c.getColumnIndex("email");
-//                    int loginColIndex = c.getColumnIndex("login");
+                    int loginColIndex = c.getColumnIndex("login");
+//                    int passColIndex = c.getColumnIndex("pass");
 
                     do {
                         // получаем значения по номерам столбцов и пишем все в лог
                         Log.d(LOG_TAG,
                                 "ID = " + c.getInt(idColIndex) +
                                         ", name = " + c.getString(nameColIndex) +
-                                        ", email = " + c.getString(emailColIndex)
-//                                        ", login = " + c.getString(loginColIndex)
+                                        ", last = " + c.getString(lastColIndex) +
+                                        ", email = " + c.getString(emailColIndex) +
+                                        ", login = " + c.getString(loginColIndex)
+//                                        ", pass = " + c.getString(passColIndex)
                                          );
                         // переход на следующую строку
                         // а если следующей нет (текущая - последняя), то false - выходим из цикла
@@ -122,9 +132,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         etName = (EditText) findViewById(R.id.etName);
           //додаткові елементи
-//          etLastName = (EditText) findViewById(R.id.etLastName);
+          etLastName = (EditText) findViewById(R.id.etLastName);
         etEmail = (EditText) findViewById(R.id.etEmail);
-//          etLogin = (EditText) findViewById(R.id.etLogin);
+          etLogin = (EditText) findViewById(R.id.etLogin);
 //          etPass = (EditText) findViewById(R.id.etPass);
 
         // создаем объект для создания и управления версиями БД
