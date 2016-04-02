@@ -1,16 +1,19 @@
 package com.example.asus.twelfthapp_sqlite;
 
-import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     final String LOG_TAG = "myLogs";
 
@@ -19,7 +22,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     DBHelper dbHelper;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,39 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         initElements();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // создаем меню
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //подключим меню с выводом логов:
+        int id = item.getItemId();
+        switch (id){
+            case R.id.menu_settings:
+                Intent intent = new Intent(this, SettingActivity.class);
+                startActivity(intent);
+                Log.d("LOG_TAG,", "--- Pressed item menu setting ---");
+                break;
+            case R.id.menu_show_users:
+                Intent intent1 = new Intent(this, ShowUsersActivity.class);
+                startActivity(intent1);
+                Log.d("LOG_TAG,", "------ Pressed item menu show users ------");
+                break;
+            case R.id.menu_about:
+                Intent intent2 = new Intent(this,AboutActivity.class);
+                startActivity(intent2);
+                Log.d("LOG_TAG,", "--------- Pressed item menu about ---------");
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -44,6 +79,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         switch (v.getId()) {
+
             case R.id.btnAdd:
                 Log.d(LOG_TAG, "--- Insert in mytable: ---");
                 // подготовим данные для вставки в виде пар: наименование столбца - значение
@@ -114,11 +150,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnClear.setOnClickListener(this);
 
         etName = (EditText) findViewById(R.id.etName);
-          //додаткові елементи
+          //додполнительные элементи
           etLastName = (EditText) findViewById(R.id.etLastName);
           etEmail = (EditText) findViewById(R.id.etEmail);
           etLogin = (EditText) findViewById(R.id.etLogin);
           etPass = (EditText) findViewById(R.id.etPass);
+
 
         // создаем объект для создания и управления версиями БД
         dbHelper = new DBHelper(this);
@@ -126,3 +163,26 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
