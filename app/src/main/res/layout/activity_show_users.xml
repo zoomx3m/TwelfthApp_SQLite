@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="*"
+        android:stretchColumns="*" >
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_span="6"
+                android:gravity="center"
+                android:text="Information about user"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:typeface="serif" >
+            </TextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tv_id_asu"
+                android:gravity="center_horizontal"
+                android:text="id"
+                android:layout_weight="1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_name_asu"
+                android:gravity="center_horizontal"
+                android:text="name"
+                android:layout_weight="1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_lastname_asu"
+                android:gravity="center_horizontal"
+                android:text="last"
+                android:layout_weight="1">
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tv_email_asu"
+                android:gravity="center_horizontal"
+                android:text="email"
+                android:layout_weight="1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_login_asu"
+                android:gravity="center_horizontal"
+                android:text="login"
+                android:layout_weight="1">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_pass_asu"
+                android:gravity="center_horizontal"
+                android:text="pass"
+                android:layout_weight="1">
+            </TextView>
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>

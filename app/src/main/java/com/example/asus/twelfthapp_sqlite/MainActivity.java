@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String name = etName.getText().toString();
         String last = etLastName.getText().toString();
         String email = etEmail.getText().toString();
-//        String login = etLogin.getText().toString();
+        String login = etLogin.getText().toString();
         String pass = etPass.getText().toString();
 
         // подключаемся к БД
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cv.put("name", name);
                 cv.put("last", last);
                 cv.put("email", email);
-//                cv.put("login", login);
+                cv.put("login", login);
                 cv.put("pass", pass);
 
                 // вставляем запись и получаем ее ID
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     int nameColIndex = c.getColumnIndex("name");
                     int lastColIndex = c.getColumnIndex("last");
                     int emailColIndex = c.getColumnIndex("email");
-//                    int loginColIndex = c.getColumnIndex("login");
+                    int loginColIndex = c.getColumnIndex("login");
                     int passColIndex = c.getColumnIndex("pass");
 
                     do {
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         ", name = " + c.getString(nameColIndex) +
                                         ", last name = " + c.getString(lastColIndex) +
                                         ", email = " + c.getString(emailColIndex) +
-//                                        ", login = " + c.getString(loginColIndex) +
+                                        ", login = " + c.getString(loginColIndex) +
                                         ", pass = " + c.getString(passColIndex)
                                          );
                         // переход на следующую строку
